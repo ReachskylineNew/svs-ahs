@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Faculty of Allied Health Sciences – SCSVMV Deemed to be University, Kanchipuram. Offering BPT, B.Optom, B.Sc Cardiac Technology, Radiology, Dialysis Technology.">
+<title>Allied Health Sciences | SCSVMV University</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --bg-dark: #0F172A;
+  --bg-dark2: #1E293B;
+  --accent: #2563EB;
+  --accent-light: #3B82F6;
+  --text-dark: #0F172A;
+  --text-muted: #64748B;
+  --card-bg: #FFFFFF;
+  --border: #E2E8F0;
+  --gradient: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  --shadow: 0 4px 24px rgba(37,99,235,0.10);
+  --shadow-lg: 0 8px 40px rgba(37,99,235,0.15);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-dark);
+  color: #F1F5F9;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ===== NAVBAR ===== */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(15,23,42,0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(59,130,246,0.12);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 70px;
+}
+.nav-logo {
+  display: flex; align-items: center;
+  background: white;
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+.nav-logo img.scsvmv-logo {
+  height: 32px; width: auto;
+  object-fit: contain;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.85rem; font-weight: 500; color: #94A3B8;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent-light); }
+.nav-cta {
+  background: linear-gradient(135deg, #2563EB, #3B82F6);
+  color: #fff !important; padding: 0.5rem 1.2rem;
+  border-radius: 8px; font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  box-shadow: 0 0 14px rgba(59,130,246,0.3);
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px rgba(59,130,246,0.5) !important; }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px; background: #94A3B8;
+  border-radius: 2px; transition: all 0.3s;
+}
+.mobile-menu {
+  display: none;
+  background: rgba(15,23,42,0.98);
+  border-top: 1px solid rgba(59,130,246,0.1);
+  padding: 1.5rem;
+}
+.mobile-menu ul { list-style: none; }
+.mobile-menu ul li { padding: 0.65rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.mobile-menu ul a { font-size: 0.9rem; color: #94A3B8; font-weight: 500; }
+.mobile-menu.open { display: block; }
+
+/* ===== HERO ===== */
+#hero {
+  min-height: 85vh;
+  background: var(--gradient);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding-top: 50px;
+}
+.hero-orbs {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.18;
+}
+.orb1 { width: 500px; height: 500px; background: #2563EB; top: -100px; right: -100px; }
+.orb2 { width: 350px; height: 350px; background: #3B82F6; bottom: -80px; left: -80px; }
+.orb3 { width: 200px; height: 200px; background: #6366F1; top: 50%; left: 40%; }
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+  position: relative; z-index: 2; width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(37,99,235,0.15);
+  border: 1px solid rgba(59,130,246,0.3);
+  padding: 0.4rem 1rem; border-radius: 100px;
+  font-size: 0.78rem; font-weight: 600; color: #93C5FD;
+  margin-bottom: 1.25rem;
+}
+.hero-badge::before { content: ''; width: 6px; height: 6px; background: #3B82F6; border-radius: 50%; }
+.hero-title {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 900; line-height: 1.1; color: #F1F5F9;
+  margin-bottom: 1rem;
+}
+.hero-title .accent { color: #3B82F6; }
+.hero-desc {
+  font-size: 0.95rem; color: #94A3B8; margin-bottom: 1.75rem;
+  max-width: 500px; line-height: 1.7;
+}
+.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn-primary {
+  background: linear-gradient(135deg, #2563EB, #3B82F6);
+  color: #fff; padding: 0.75rem 1.75rem; border-radius: var(--radius-sm);
+  font-weight: 700; font-size: 0.9rem;
+  box-shadow: 0 0 20px rgba(59,130,246,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(59,130,246,0.5); }
+.btn-outline {
+  border: 1.5px solid rgba(59,130,246,0.4); color: #93C5FD;
+  padding: 0.75rem 1.75rem; border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 0.9rem;
+  transition: background 0.2s, border-color 0.2s;
+  display: inline-block;
+}
+.btn-outline:hover { background: rgba(37,99,235,0.1); border-color: #3B82F6; }
+.hero-stats {
+  display: flex; gap: 1.75rem; margin-top: 2rem; flex-wrap: wrap;
+}
+.stat {
+  display: flex; flex-direction: column;
+}
+.stat .num { font-size: 1.4rem; font-weight: 800; color: #F1F5F9; }
+.stat .label { font-size: 0.7rem; color: var(--text-muted); font-weight: 400; }
+.hero-visual {
+  display: flex; justify-content: center; align-items: center;
+}
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  border: 1px solid rgba(59,130,246,0.25);
+  animation: float 4s ease-in-out infinite;
+}
+.hero-image-wrapper::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(145deg, rgba(37,99,235,0.1), rgba(15,23,42,0.2));
+  pointer-events: none; z-index: 1;
+}
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.hero-image-wrapper:hover .hero-img {
+  transform: scale(1.05);
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+/* ===== SECTION COMMONS ===== */
+section { padding: 5rem 1.5rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--accent-light);
+  background: rgba(37,99,235,0.12);
+  border: 1px solid rgba(59,130,246,0.2);
+  padding: 0.35rem 0.9rem; border-radius: 100px;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800; color: #F1F5F9; margin-bottom: 0.75rem; line-height: 1.2;
+}
+.section-title .accent { color: #3B82F6; }
+.section-subtitle { color: var(--text-muted); font-size: 1rem; max-width: 600px; line-height: 1.7; }
+.section-header { margin-bottom: 3rem; }
+.section-header.center { text-align: center; }
+.section-header.center .section-subtitle { margin: 0 auto; }
+
+/* ===== ABOUT SECTION ===== */
+#about { background: #FFFFFF; padding: 4rem 1.5rem; }
+#about .section-tag { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.25); }
+#about .section-title { color: var(--text-dark); margin-bottom: 1.25rem; }
+#about .section-subtitle { color: #475569; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+.about-para-wrap { margin-bottom: 4rem; width: 100%; text-align: justify; }
+.about-para-wrap p {
+  color: #334155; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; width: 100%;
+}
+
+/* Vision/Mission/Approach Cards */
+.vm-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;
+}
+.vm-card-static {
+  background: var(--bg-dark);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: var(--radius); padding: 2.5rem 2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+}
+.vm-card-static:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(37,99,235,0.15);
+  border-color: rgba(59,130,246,0.5);
+}
+.vm-icon { font-size: 2.5rem; margin-bottom: 1.25rem; }
+.vm-card-static h3 { font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1rem; }
+.vm-card-static p { font-size: 0.95rem; line-height: 1.7; color: #94A3B8; margin: 0; }
+
+
+
+/* Modern Labs Highlights */
+.labs-header {
+  border-bottom: 1px solid #E2E8F0; padding-bottom: 1rem; margin-bottom: 2rem;
+}
+.labs-header h3 { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); }
+.about-highlights-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+}
+.highlight-item {
+  background: #F8FAFC; border: 1px solid #E2E8F0;
+  border-radius: var(--radius); padding: 1.75rem;
+  transition: all 0.3s ease;
+}
+.highlight-item:hover { transform: translateY(-5px); border-color: #3B82F6; box-shadow: 0 10px 20px rgba(37,99,235,0.06); }
+.hi-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.hi-title { font-weight: 700; color: #0F172A; margin-bottom: 0.5rem; font-size: 1.05rem; }
+.hi-text { font-size: 0.85rem; color: #64748B; line-height: 1.6; }
+
+/* ===== PROGRAMS SECTION ===== */
+#programs { background: var(--bg-dark); }
+.programs-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;
+}
+.program-card {
+  perspective: 1000px; background-color: transparent;
+  flex: 1 1 320px;
+  max-width: 400px;
+  height: 280px;
+}
+.pc-inner {
+  position: relative; width: 100%; height: 100%; cursor: pointer;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+.program-card:hover .pc-inner, .program-card.active .pc-inner {
+  transform: rotateY(180deg);
+}
+.pc-front, .pc-back {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  border-radius: var(--radius); padding: 2rem;
+  border: 1px solid rgba(59,130,246,0.15);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.pc-front {
+  background: rgba(30,41,59,0.95);
+}
+.pc-back {
+  background: rgba(15,23,42,0.95);
+  transform: rotateY(180deg);
+}
+
+.pc-icon {
+  width: 72px; height: 72px; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(59,130,246,0.15));
+  border: 1px solid rgba(59,130,246,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; margin-bottom: 1.5rem;
+}
+.pc-title { font-size: 1.35rem; font-weight: 800; color: #F1F5F9; line-height: 1.3; margin-bottom: 0.5rem; }
+.pc-abbr { font-size: 0.95rem; color: var(--accent-light); font-weight: 700; }
+
+.pc-desc { font-size: 0.9rem; color: #94A3B8; line-height: 1.6; margin-bottom: 1.5rem; }
+.pc-footer { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.duration-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.8rem; color: #CBD5E1; font-weight: 600;
+  background: rgba(255,255,255,0.08); padding: 0.5rem 1rem; border-radius: 100px;
+}
+.duration-badge::before { content: '⏱️'; }
+.pc-btn {
+  background: rgba(37,99,235,0.15);
+  border: 1px solid rgba(59,130,246,0.4);
+  color: #fff; padding: 0.6rem 1.5rem;
+  border-radius: 100px; font-size: 0.85rem; font-weight: 700;
+  transition: all 0.2s; cursor: pointer; width: 100%;
+}
+.pc-btn:hover { background: #2563EB; border-color: #3B82F6; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+
+/* ===== WHY CHOOSE US ===== */
+#features { background: #FFFFFF; }
+#features .section-tag { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.25); }
+#features .section-title { color: var(--text-dark); }
+#features .section-subtitle { color: #475569; }
+.features-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem;
+}
+.feature-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius); padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59,130,246,0.4);
+  box-shadow: 0 12px 40px rgba(37,99,235,0.10);
+}
+.fc-icon {
+  width: 64px; height: 64px; border-radius: 18px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(59,130,246,0.08));
+  border: 1.5px solid rgba(59,130,246,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; margin: 0 auto 1.25rem;
+}
+.fc-title {
+  font-size: 1rem; font-weight: 700; color: #0F172A; margin-bottom: 0.5rem;
+}
+.fc-text { font-size: 0.83rem; color: #475569; line-height: 1.65; }
+
+/* ===== CONTACT SECTION ===== */
+#contact { background: #FFFFFF; }
+#contact .section-tag { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.25); }
+#contact .section-title { color: var(--text-dark); }
+#contact .section-subtitle { color: #475569; }
+.contact-layout {
+  display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem;
+}
+.contact-info h3 { font-size: 1.2rem; font-weight: 700; color: #0F172A; margin-bottom: 1rem; }
+.contact-info p { font-size: 0.88rem; color: #475569; line-height: 1.75; margin-bottom: 1.5rem; }
+.contact-details { display: flex; flex-direction: column; gap: 0.85rem; }
+.cdetail {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-sm); padding: 1rem;
+}
+.cdetail .cd-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+.cdetail .cd-text { font-size: 0.82rem; color: #475569; }
+.cdetail .cd-text strong { color: #0F172A; font-weight: 600; display: block; margin-bottom: 2px; }
+/* Form */
+.contact-form-wrap {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius); padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(37,99,235,0.06);
+}
+.contact-form-wrap h3 {
+  font-size: 1.3rem; font-weight: 700; color: #0F172A; margin-bottom: 1.75rem;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.25rem; }
+label {
+  display: block; font-size: 0.8rem; font-weight: 600;
+  color: #334155; margin-bottom: 0.5rem;
+}
+input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+  width: 100%; background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: var(--radius-sm);
+  color: #0F172A; font-family: inherit;
+  font-size: 0.88rem; padding: 0.8rem 1rem;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+input::placeholder, textarea::placeholder { color: #94A3B8; }
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+}
+input.err, textarea.err { border-color: #EF4444; }
+.err-msg {
+  font-size: 0.72rem; color: #EF4444; margin-top: 0.35rem; display: none;
+}
+.err-msg.show { display: block; }
+textarea { resize: vertical; min-height: 120px; }
+.btn-submit {
+  width: 100%; background: linear-gradient(135deg, #2563EB, #3B82F6);
+  color: #fff; border: none; padding: 0.95rem;
+  border-radius: var(--radius-sm); font-size: 0.95rem; font-weight: 700;
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 0 20px rgba(59,130,246,0.3);
+  margin-top: 0.5rem;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(59,130,246,0.5); }
+.success-msg {
+  display: none; background: rgba(16,185,129,0.10);
+  border: 1px solid rgba(16,185,129,0.4);
+  color: #059669; border-radius: var(--radius-sm);
+  padding: 1rem; font-size: 0.85rem; font-weight: 600;
+  text-align: center; margin-top: 0.75rem;
+}
+.success-msg.show { display: block; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: rgba(15,23,42,0.98);
+  border-top: 1px solid rgba(59,130,246,0.1);
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem;
+}
+.footer-brand .logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+.footer-brand p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; max-width: 280px; }
+.footer-col h4 { font-size: 0.82rem; font-weight: 700; color: #F1F5F9; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.5rem; }
+.footer-col ul a { font-size: 0.8rem; color: var(--text-muted); transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--accent-light); }
+.footer-bottom {
+  max-width: 1200px; margin: 1.5rem auto 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 0.5rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-visual { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  section { padding: 3.5rem 1rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1.25rem; }
+  .about-highlights { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.9rem; }
+  .hero-btns { flex-direction: column; }
+  .hero-btns a { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="SCSVMV Allied Health Sciences Home">
+      <img src="Sri-Chandrasekharendra-Saraswathi-Viswa-Mahavidyalaya-SCSVMV-1024x180.png"
+           alt="SCSVMV University" class="scsvmv-logo">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#features">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Apply Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" role="menu">
+    <ul>
+      <li><a href="#about" role="menuitem">About</a></li>
+      <li><a href="#programs" role="menuitem">Programs</a></li>
+      <li><a href="#features" role="menuitem">Why Choose Us</a></li>
+      <li><a href="#contact" role="menuitem">Contact</a></li>
+      <li style="padding-top:1rem"><a href="#contact" class="btn-primary" role="menuitem">Apply Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" aria-label="Hero section">
+  <div class="hero-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Faculty of Allied Health Sciences</div>
+      <h1 class="hero-title">
+        Shaping Tomorrow's<br>
+        <span class="accent">Healthcare</span><br>
+        Professionals
+      </h1>
+      <p class="hero-desc">
+        Allied Health Sciences at SCSVMV offers holistic, career-ready education across medical laboratory technology,
+        physiotherapy, optometry, cardiac technology, radiology, and dialysis — preparing you to make a real difference in patient care.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary" id="applyNowHeroBtn">Apply Now →</a>
+        <a href="#programs" class="btn-outline" id="exploreBtn">Explore Programs</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="num">5+</span><span class="label">UG Programs</span></div>
+        <div class="stat"><span class="num">50 Acres</span><span class="label">Green Campus</span></div>
+        <div class="stat"><span class="num">100%</span><span class="label">Clinical Exposure</span></div>
+        <div class="stat"><span class="num">2024</span><span class="label">New Intake</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-image-wrapper">
+        <img src="ahs.jpg" alt="Faculty of Allied Health Sciences" class="hero-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about" aria-labelledby="aboutTitle">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-tag">About the Faculty</div>
+      <h2 class="section-title" id="aboutTitle">Holistic Healthcare<br><span class="accent">Education at SCSVMV</span></h2>
+      <p class="section-subtitle">A pillar of assurance in the healthcare domain — nurturing versatile professionals across a wide spectrum of allied health specialties.</p>
+    </div>
+
+    <div class="about-para-wrap">
+      <p>
+        Allied Health Sciences stand as a pillar of assurance within the healthcare domain, offering a diverse array
+        of disciplines that play a pivotal role in patient care. Their expertise spans medical laboratory technology,
+        physiotherapy, occupational therapy, optometry, dialysis technology, radiography, cardiac technology, and nutrition.
+      </p>
+      <p>
+        SCSVMV launched new courses under the Faculty of Allied Health Sciences for the academic year 2024–25.
+        The courses are designed to impart quality knowledge and produce healthcare professionals who shall apply
+        their expertise to prevent disease transmission, diagnose, treat, and rehabilitate people of all ages.
+      </p>
+      <p>
+        SCSVMV is situated in a safe, student-friendly, green, sprawling campus of around 50 acres at Enathur,
+        Kanchipuram. The University provides state-of-the-art labs, international library, world-class gym, and
+        top-notch sports facilities.
+      </p>
+    </div>
+
+    <!-- Vision / Mission / Approach Cards -->
+    <div class="vm-grid">
+      <div class="vm-card-static">
+        <div class="vm-icon">🎯</div>
+        <h3>Our Vision</h3>
+        <p>To be a leading faculty in allied health sciences higher education, fostering innovation, research, and ethical practice — creating healthcare professionals who serve with compassion and technical excellence.</p>
+      </div>
+
+      <div class="vm-card-static">
+        <div class="vm-icon">🚀</div>
+        <h3>Our Mission</h3>
+        <p>To impart quality knowledge and produce skilled healthcare professionals who apply their expertise in preventing disease, diagnosing conditions, treating patients, and rehabilitating individuals of all ages and specialties.</p>
+      </div>
+
+      <div class="vm-card-static">
+        <div class="vm-icon">🌟</div>
+        <h3>Our Approach</h3>
+        <p>One of our key strengths is a holistic approach to patient care. We offer wide-ranging career opportunities in clinical roles, research, education, and administration, empowering graduates to advocate for their patients and communities.</p>
+      </div>
+    </div>
+
+    <!-- Modern Labs Highlights -->
+    <div class="labs-header">
+      <h3>Faculty Highlights & Facilities</h3>
+    </div>
+    <div class="about-highlights-grid">
+      <div class="highlight-item">
+        <div class="hi-icon">🔬</div>
+        <h4 class="hi-title">Modern Labs</h4>
+        <p class="hi-text">Echo Doppler, CT, MRI, and specialized Operation Theatre units for real-world simulation.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="hi-icon">🏕️</div>
+        <h4 class="hi-title">50-Acre Campus</h4>
+        <p class="hi-text">Safe, green, and student-friendly environment providing a perfect setting for healthcare studies.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="hi-icon">🏆</div>
+        <h4 class="hi-title">NAAC Accredited</h4>
+        <p class="hi-text">A Deemed University with rigorous quality standards and NAAC A+ benchmarking.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="hi-icon">🌐</div>
+        <h4 class="hi-title">Clinical Exposure</h4>
+        <p class="hi-text">Extensive internship training and hands-on patient care opportunities at leading hospitals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAMS SECTION ===== -->
+<section id="programs" aria-labelledby="programsTitle">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-tag">Courses Offered</div>
+      <h2 class="section-title" id="programsTitle">Programs Designed for<br><span class="accent">Healthcare Careers</span></h2>
+      <p class="section-subtitle">Choose a programme designed to launch your career in the dynamic world of healthcare and allied health sciences.</p>
+    </div>
+    <div class="programs-grid">
+
+      <div class="program-card" onclick="this.classList.toggle('active')">
+        <div class="pc-inner">
+          <div class="pc-front">
+            <div class="pc-icon">🦴</div>
+            <div class="pc-title">Bachelor of Physiotherapy</div>
+            <div class="pc-abbr">BPT</div>
+          </div>
+          <div class="pc-back">
+            <p class="pc-desc">An in-depth program focusing on physical rehabilitation, musculoskeletal assessment, therapeutic exercises, and neuromuscular re-education to restore movement and reduce pain in patients.</p>
+            <div class="pc-footer">
+              <span class="duration-badge">4 Years + 6 Months Internship</span>
+              <button class="pc-btn" id="bptBtn">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card" onclick="this.classList.toggle('active')">
+        <div class="pc-inner">
+          <div class="pc-front">
+            <div class="pc-icon">👁️</div>
+            <div class="pc-title">Bachelor of Optometry</div>
+            <div class="pc-abbr">B.Optom</div>
+          </div>
+          <div class="pc-back">
+            <p class="pc-desc">Trains students in the science of vision care, ocular disease management, low vision rehabilitation, and contact lens practice, equipping them to serve as primary eye care providers.</p>
+            <div class="pc-footer">
+              <span class="duration-badge">3 Years + 1 Year Internship</span>
+              <button class="pc-btn" id="optomBtn">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card" onclick="this.classList.toggle('active')">
+        <div class="pc-inner">
+          <div class="pc-front">
+            <div class="pc-icon">❤️</div>
+            <div class="pc-title">B.Sc Cardiac Technology</div>
+            <div class="pc-abbr">Cardiac Tech</div>
+          </div>
+          <div class="pc-back">
+            <p class="pc-desc">Prepares students in cardiac diagnostics, ECG interpretation, echocardiography, treadmill testing, and invasive/non-invasive cardiac procedures essential for cardiovascular patient care.</p>
+            <div class="pc-footer">
+              <span class="duration-badge">3 Years + 1 Year Internship</span>
+              <button class="pc-btn" id="cardiacBtn">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card" onclick="this.classList.toggle('active')">
+        <div class="pc-inner">
+          <div class="pc-front">
+            <div class="pc-icon">📡</div>
+            <div class="pc-title">B.Sc Radiology & Imaging Technology</div>
+            <div class="pc-abbr">Radiology</div>
+          </div>
+          <div class="pc-back">
+            <p class="pc-desc">Covers radiographic techniques, CT, MRI, ultrasound imaging, radiation safety, and image processing — training students to operate diagnostic imaging equipment in clinical settings.</p>
+            <div class="pc-footer">
+              <span class="duration-badge">3 Years + 1 Year Internship</span>
+              <button class="pc-btn" id="radioBtn">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card" onclick="this.classList.toggle('active')">
+        <div class="pc-inner">
+          <div class="pc-front">
+            <div class="pc-icon">💧</div>
+            <div class="pc-title">B.Sc Dialysis Technology</div>
+            <div class="pc-abbr">Dialysis Tech</div>
+          </div>
+          <div class="pc-back">
+            <p class="pc-desc">A specialized programme covering renal physiology, hemodialysis, peritoneal dialysis, blood access care, and water treatment systems for patients with chronic kidney disease.</p>
+            <div class="pc-footer">
+              <span class="duration-badge">3 Years + 1 Year Internship</span>
+              <button class="pc-btn" id="dialysisBtn">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES / WHY CHOOSE US ===== -->
+<section id="features" aria-labelledby="featuresTitle">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title" id="featuresTitle">Built for<br><span class="accent">Your Success</span></h2>
+      <p class="section-subtitle">Everything you need to launch a rewarding career in healthcare — under one roof at SCSVMV.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="fc-icon">🔬</div>
+        <h3 class="fc-title">Advanced Clinical Labs</h3>
+        <p class="fc-text">State-of-the-art Echo Doppler, Treadmill ECG, CT Scan, MRI, USG, and fully equipped Operation Theatre labs for hands-on training.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">👨‍🏫</div>
+        <h3 class="fc-title">Experienced Faculty</h3>
+        <p class="fc-text">Dedicated, professional, and experienced academic team focused on imparting quality and value-based education with a one-family atmosphere.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">💼</div>
+        <h3 class="fc-title">Placement Assistance</h3>
+        <p class="fc-text">Dedicated placement cell connecting students with leading hospitals, clinics, and healthcare institutions both nationally and internationally.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🤝</div>
+        <h3 class="fc-title">Industry Partnerships</h3>
+        <p class="fc-text">Strong MoU partnerships with healthcare organisations, enabling live exposure, internship opportunities, and collaborative research projects.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">📚</div>
+        <h3 class="fc-title">International Library</h3>
+        <p class="fc-text">Access to a rich collection of medical textbooks, journals, e-resources, and research databases to support academic excellence.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🏡</div>
+        <h3 class="fc-title">Campus Life</h3>
+        <p class="fc-text">World-class gym, sporting facilities for cricket, football, badminton, tennis & basketball, hostel, cafeteria, and a robust transport system.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🌱</div>
+        <h3 class="fc-title">Holistic Development</h3>
+        <p class="fc-text">A culture of excellent faculty-student interaction and extracurricular engagement that nurtures leadership, ethics, and social responsibility.</p>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon">🎓</div>
+        <h3 class="fc-title">NAAC Accredited</h3>
+        <p class="fc-text">Recognised Deemed University with consistent quality benchmarks, rigorous academic standards, and a track record of alumni success.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT / FORM SECTION ===== -->
+<section id="contact" aria-labelledby="contactTitle">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title" id="contactTitle">Ready to Shape Your<br><span class="accent">Future?</span></h2>
+      <p class="section-subtitle">Fill in your details and our admissions team will reach out within 24 hours.</p>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <h3>Faculty of Allied Health Sciences</h3>
+        <p>Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya (SCSVMV), Enathur, Kanchipuram — 631 561, Tamil Nadu, India.</p>
+        <div class="contact-details">
+          <div class="cdetail">
+            <span class="cd-icon">📍</span>
+            <div class="cd-text">
+              <strong>Address</strong>
+              SCSVMV University, Enathur, Kanchipuram – 631 561, Tamil Nadu, India
+            </div>
+          </div>
+          <div class="cdetail">
+            <span class="cd-icon">📞</span>
+            <div class="cd-text">
+              <strong>Admissions Helpline</strong>
+              +91 9629 032 323
+            </div>
+          </div>
+          <div class="cdetail">
+            <span class="cd-icon">✉️</span>
+            <div class="cd-text">
+              <strong>Email</strong>
+              info@kanchiuniv.ac.in
+            </div>
+          </div>
+          <div class="cdetail">
+            <span class="cd-icon">🕐</span>
+            <div class="cd-text">
+              <strong>Office Hours</strong>
+              Monday – Saturday: 9:00 AM – 5:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Arjun Kumar" autocomplete="name">
+              <span class="err-msg" id="nameErr">Please enter your full name.</span>
+            </div>
+            <div class="form-group">
+              <label for="emailAddr">Email Address *</label>
+              <input type="email" id="emailAddr" name="email" placeholder="you@example.com" autocomplete="email">
+              <span class="err-msg" id="emailErr">Please enter a valid email address.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phoneNum">Phone Number *</label>
+              <input type="tel" id="phoneNum" name="phone" placeholder="+91 9876 543 210" autocomplete="tel">
+              <span class="err-msg" id="phoneErr">Please enter a valid phone number.</span>
+            </div>
+            <div class="form-group">
+              <label for="programInterest">Program of Interest</label>
+              <select id="programInterest" name="program">
+                <option value="">— Select a Program —</option>
+                <option>Bachelor of Physiotherapy (BPT)</option>
+                <option>Bachelor of Optometry (B.Optom)</option>
+                <option>B.Sc Cardiac Technology</option>
+                <option>B.Sc Radiology & Imaging Technology</option>
+                <option>B.Sc Dialysis Technology</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message / Query *</label>
+            <textarea id="message" name="message" placeholder="Tell us about your query, preferred intake year, or any questions you have..."></textarea>
+            <span class="err-msg" id="msgErr">Please enter your message.</span>
+          </div>
+          <button type="submit" class="btn-submit" id="submitFormBtn">
+            <span>Send Message</span>
+            <span>→</span>
+          </button>
+          <div class="success-msg" id="successMsg" role="alert">
+            ✅ Thank you! Your enquiry has been submitted. Our team will contact you within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-row" style="background: white; padding: 8px 15px; border-radius: 8px; display: inline-block; margin-bottom: 1rem;">
+        <img src="Sri-Chandrasekharendra-Saraswathi-Viswa-Mahavidyalaya-SCSVMV-1024x180.png"
+             alt="SCSVMV University" style="height:32px;width:auto;object-fit:contain;">
+      </div>
+      <p>Faculty of Allied Health Sciences, Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya, Kanchipuram, Tamil Nadu, India.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#programs">Bachelor of Physiotherapy</a></li>
+        <li><a href="#programs">Bachelor of Optometry</a></li>
+        <li><a href="#programs">B.Sc Cardiac Technology</a></li>
+        <li><a href="#programs">B.Sc Radiology Technology</a></li>
+        <li><a href="#programs">B.Sc Dialysis Technology</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About the Faculty</a></li>
+        <li><a href="#features">Why Choose Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://kanchiuniv.ac.in" target="_blank" rel="noopener">SCSVMV University</a></li>
+        <li><a href="https://admissions.kanchiuniv.ac.in" target="_blank" rel="noopener">Apply Online</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SCSVMV University. All rights reserved. — Faculty of Allied Health Sciences.</span>
+    <span>Kanchipuram – 631 561, Tamil Nadu, India</span>
+  </div>
+</footer>
+
+<script>
+// Hamburger toggle
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburgerBtn.setAttribute('aria-expanded', isOpen);
+});
+// Close mobile menu on link click
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.background =
+    window.scrollY > 40 ? 'rgba(15,23,42,0.98)' : 'rgba(15,23,42,0.92)';
+});
+
+// Form validation & submit
+const form = document.getElementById('contactForm');
+function showErr(id, inputEl) {
+  document.getElementById(id).classList.add('show');
+  inputEl.classList.add('err');
+}
+function clearErr(id, inputEl) {
+  document.getElementById(id).classList.remove('show');
+  inputEl.classList.remove('err');
+}
+
+['fullName','emailAddr','phoneNum','message'].forEach(id => {
+  document.getElementById(id).addEventListener('input', function() {
+    this.classList.remove('err');
+    const errMap = {fullName:'nameErr',emailAddr:'emailErr',phoneNum:'phoneErr',message:'msgErr'};
+    document.getElementById(errMap[id]).classList.remove('show');
+  });
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let valid = true;
+  const name = document.getElementById('fullName');
+  const email = document.getElementById('emailAddr');
+  const phone = document.getElementById('phoneNum');
+  const msg = document.getElementById('message');
+
+  if (!name.value.trim() || name.value.trim().length < 2) { showErr('nameErr', name); valid = false; } else clearErr('nameErr', name);
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRe.test(email.value.trim())) { showErr('emailErr', email); valid = false; } else clearErr('emailErr', email);
+  const phoneRe = /^[+\d\s\-()]{7,15}$/;
+  if (!phoneRe.test(phone.value.trim())) { showErr('phoneErr', phone); valid = false; } else clearErr('phoneErr', phone);
+  if (!msg.value.trim() || msg.value.trim().length < 5) { showErr('msgErr', msg); valid = false; } else clearErr('msgErr', msg);
+
+  if (valid) {
+    document.getElementById('successMsg').classList.add('show');
+    form.reset();
+    setTimeout(() => document.getElementById('successMsg').classList.remove('show'), 6000);
+  }
+});
+
+// Scroll reveal animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.program-card, .feature-card, .vm-card, .highlight-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
