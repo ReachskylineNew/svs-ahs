@@ -835,28 +835,28 @@ footer {
 
       <div class="contact-form-wrap">
         <h3>Send Us a Message</h3>
-        <form id="contactForm" novalidate>
+        <form id="contact-form" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label for="fullName">Full Name *</label>
-              <input type="text" id="fullName" name="fullName" placeholder="e.g. Arjun Kumar" autocomplete="name">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="e.g. Arjun Kumar" autocomplete="name" required>
               <span class="err-msg" id="nameErr">Please enter your full name.</span>
             </div>
             <div class="form-group">
-              <label for="emailAddr">Email Address *</label>
-              <input type="email" id="emailAddr" name="email" placeholder="you@example.com" autocomplete="email">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
               <span class="err-msg" id="emailErr">Please enter a valid email address.</span>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="phoneNum">Phone Number *</label>
-              <input type="tel" id="phoneNum" name="phone" placeholder="+91 9876 543 210" autocomplete="tel">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 9876 543 210" autocomplete="tel" required>
               <span class="err-msg" id="phoneErr">Please enter a valid phone number.</span>
             </div>
             <div class="form-group">
-              <label for="programInterest">Program of Interest</label>
-              <select id="programInterest" name="program">
+              <label for="program">Program of Interest</label>
+              <select id="program" name="program">
                 <option value="">— Select a Program —</option>
                 <option>Bachelor of Physiotherapy (BPT)</option>
                 <option>Bachelor of Optometry (B.Optom)</option>
@@ -868,16 +868,13 @@ footer {
           </div>
           <div class="form-group">
             <label for="message">Message / Query *</label>
-            <textarea id="message" name="message" placeholder="Tell us about your query, preferred intake year, or any questions you have..."></textarea>
+            <textarea id="message" name="message" placeholder="Tell us about your query, preferred intake year, or any questions you have..." required></textarea>
             <span class="err-msg" id="msgErr">Please enter your message.</span>
           </div>
           <button type="submit" class="btn-submit" id="submitFormBtn">
             <span>Send Message</span>
             <span>→</span>
           </button>
-          <div class="success-msg" id="successMsg" role="alert">
-            ✅ Thank you! Your enquiry has been submitted. Our team will contact you within 24 hours.
-          </div>
         </form>
       </div>
     </div>
@@ -921,6 +918,17 @@ footer {
   </div>
 </footer>
 
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    // Replace with your actual Public Key from EmailJS Dashboard
+    emailjs.init({
+      publicKey: "YOUR_PUBLIC_KEY",
+    });
+  })();
+</script>
+
 <script>
 // Hamburger toggle
 const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -944,43 +952,100 @@ window.addEventListener('scroll', () => {
 });
 
 // Form validation & submit
-const form = document.getElementById('contactForm');
+const contactForm = document.getElementById('contact-form');
+
 function showErr(id, inputEl) {
-  document.getElementById(id).classList.add('show');
+  const errEl = document.getElementById(id);
+  if (errEl) errEl.classList.add('show');
   inputEl.classList.add('err');
 }
+
 function clearErr(id, inputEl) {
-  document.getElementById(id).classList.remove('show');
+  const errEl = document.getElementById(id);
+  if (errEl) errEl.classList.remove('show');
   inputEl.classList.remove('err');
 }
 
-['fullName','emailAddr','phoneNum','message'].forEach(id => {
-  document.getElementById(id).addEventListener('input', function() {
-    this.classList.remove('err');
-    const errMap = {fullName:'nameErr',emailAddr:'emailErr',phoneNum:'phoneErr',message:'msgErr'};
-    document.getElementById(errMap[id]).classList.remove('show');
-  });
+// Clear error on input
+['name', 'email', 'phone', 'message'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('input', function() {
+      this.classList.remove('err');
+      const errMap = { name: 'nameErr', email: 'emailErr', phone: 'phoneErr', message: 'msgErr' };
+      const errEl = document.getElementById(errMap[id]);
+      if (errEl) errEl.classList.remove('show');
+    });
+  }
 });
 
-form.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
-  let valid = true;
-  const name = document.getElementById('fullName');
-  const email = document.getElementById('emailAddr');
-  const phone = document.getElementById('phoneNum');
-  const msg = document.getElementById('message');
 
-  if (!name.value.trim() || name.value.trim().length < 2) { showErr('nameErr', name); valid = false; } else clearErr('nameErr', name);
-  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRe.test(email.value.trim())) { showErr('emailErr', email); valid = false; } else clearErr('emailErr', email);
-  const phoneRe = /^[+\d\s\-()]{7,15}$/;
-  if (!phoneRe.test(phone.value.trim())) { showErr('phoneErr', phone); valid = false; } else clearErr('phoneErr', phone);
-  if (!msg.value.trim() || msg.value.trim().length < 5) { showErr('msgErr', msg); valid = false; } else clearErr('msgErr', msg);
+  let isValid = true;
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const phone = document.getElementById('phone');
+  const program = document.getElementById('program');
+  const message = document.getElementById('message');
+  const submitBtn = document.getElementById('submitFormBtn');
 
-  if (valid) {
-    document.getElementById('successMsg').classList.add('show');
-    form.reset();
-    setTimeout(() => document.getElementById('successMsg').classList.remove('show'), 6000);
+  // Validation
+  if (!name.value.trim()) {
+    showErr('nameErr', name);
+    isValid = false;
+  } else {
+    clearErr('nameErr', name);
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value.trim())) {
+    showErr('emailErr', email);
+    isValid = false;
+  } else {
+    clearErr('emailErr', email);
+  }
+
+  if (!phone.value.trim()) {
+    showErr('phoneErr', phone);
+    isValid = false;
+  } else {
+    clearErr('phoneErr', phone);
+  }
+
+  if (!message.value.trim()) {
+    showErr('msgErr', message);
+    isValid = false;
+  } else {
+    clearErr('msgErr', message);
+  }
+
+  if (isValid) {
+    // Show loading state
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span>Sending...</span>';
+    submitBtn.disabled = true;
+
+    const templateParams = {
+      name: name.value,
+      email: email.value,
+      phone: phone.value,
+      program: program.value,
+      message: message.value
+    };
+
+    emailjs.send('service_j0qwedl', 'template_ingxxq9', templateParams)
+      .then(function(response) {
+        alert("Admission enquiry sent successfully");
+        contactForm.reset();
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      }, function(error) {
+        alert("Failed to send enquiry");
+        console.error('EmailJS Error:', error);
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      });
   }
 });
 
@@ -992,9 +1057,11 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.style.transform = 'translateY(0)';
     }
   });
-}, { threshold: 0.1 });
+}, {
+  threshold: 0.1
+});
 
-document.querySelectorAll('.program-card, .feature-card, .vm-card, .highlight-card').forEach(el => {
+document.querySelectorAll('.program-card, .feature-card, .vm-card-static, .highlight-item').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(24px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
