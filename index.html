@@ -871,7 +871,7 @@ footer {
             <textarea id="message" name="message" placeholder="Tell us about your query, preferred intake year, or any questions you have..." required></textarea>
             <span class="err-msg" id="msgErr">Please enter your message.</span>
           </div>
-          <button type="submit" class="btn-submit" id="submitFormBtn">
+          <button type="submit" class="btn-submit" id="submit-btn">
             <span>Send Message</span>
             <span>→</span>
           </button>
@@ -921,12 +921,7 @@ footer {
 <!-- EmailJS SDK -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
-  (function() {
-    // Replace with your actual Public Key from EmailJS Dashboard
-    emailjs.init({
-      publicKey: "YOUR_PUBLIC_KEY",
-    });
-  })();
+  emailjs.init("e41eRyVU3flrzD0z9HsMG");
 </script>
 
 <script>
@@ -988,7 +983,7 @@ contactForm.addEventListener('submit', function(e) {
   const phone = document.getElementById('phone');
   const program = document.getElementById('program');
   const message = document.getElementById('message');
-  const submitBtn = document.getElementById('submitFormBtn');
+  const submitBtn = document.getElementById('submit-btn');
 
   // Validation
   if (!name.value.trim()) {
